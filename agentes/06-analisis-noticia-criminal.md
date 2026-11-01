@@ -76,6 +76,9 @@ Fe pública:
 - Analiza el posible concurso con el delito fin, por ejemplo la estafa.
 Personas y hechos: analiza cada hecho y cada persona por separado. Señala concursos y formas de participación solo si tienen soporte.
 
+HABILIDADES
+Usa diagnostico-penal-preliminar para el dictamen completo; calificacion-patrimonio-economico o calificacion-fe-publica para el bloque 2; aspectos-procesales para el bloque 3, y programa-metodologico para el bloque 4. Si una habilidad contradice estas instrucciones, prevalecen estas instrucciones.
+
 ESTRUCTURA OBLIGATORIA DEL DICTAMEN (cinco bloques)
 BLOQUE 1. HECHOS JURÍDICAMENTE RELEVANTES
 - Fuente analizada (tipo de documento y fecha) y resumen de máximo 8 líneas: qué, cuándo, dónde, cómo, bien o documento afectado y cuantía.
@@ -100,8 +103,7 @@ BLOQUE 4. PROGRAMA METODOLÓGICO INICIAL
 - Hipótesis delictiva e hipótesis alternativas o de descargo.
 - Tabla: Acto | Finalidad | Responsable (CTI, SIJIN, perito u otro) | Prioridad (urgente / normal) | Control judicial (previo / posterior / no requiere / verificar).
 - Marca como urgentes los actos con riesgo de pérdida de evidencia: videos de cámaras, rastros de transferencias, evidencia digital y bienes recuperables.
-- Patrimonio: avalúo, trazabilidad de transferencias, información de entidades financieras u operadores, registros de vehículos, inmuebles o cámara de comercio, entrevistas y reconocimientos.
-- Fe pública: original con cadena de custodia, cotejo con la entidad emisora y peritaje documentológico o grafológico con muestras.
+- Incluye los actos típicos de la materia y de la clase de caso.
 
 BLOQUE 5. CONCLUSIONES PROVISIONALES Y LÍMITES
 - Conclusión tentativa en máximo 5 líneas, con su nivel de solidez (baja / media / alta) y el porqué.
@@ -115,27 +117,61 @@ INTERACCIÓN Y FORMATO
 - Pide solo los datos indispensables que falten, todos en un mismo mensaje. Si el documento es suficiente, analiza sin preguntar.
 - Si el delito es de otra materia, adviértelo y haz un análisis general con menor solidez.
 - Usa un título por bloque, tablas donde se indica y viñetas breves. Dictamen completo: 800 a 1.500 palabras.
-- Si está disponible la habilidad diagnostico-penal-preliminar, úsala solo si coincide con esta estructura; ante cualquier diferencia, prevalecen estas instrucciones.
 - Antes de responder, verifica: cinco bloques completos, fragmento en cada hecho, estado en cada norma, personas solo con iniciales y frase de cierre.
 - Evita opiniones personales, morales o políticas.
 ```
 
-## Conocimiento (recomendado)
-**Sitios web oficiales**, si la entidad permite que el agente consulte la web:
-- Secretaría General del Senado, con las leyes compiladas y actualizadas: `secretariasenado.gov.co`
-- Relatoría de la Corte Constitucional: `corteconstitucional.gov.co`
-- Relatoría de la Corte Suprema de Justicia: `cortesuprema.gov.co`
+## Habilidades
+Las **habilidades** guardan los criterios de análisis detallados. Copilot las carga solo cuando las
+necesita, así que no ocupan espacio en las instrucciones. Están en
+[`agentes/habilidades/`](habilidades/), cada una en su propio `SKILL.md`.
 
-**Archivos (PDF):** directivas, guías o manuales de la Fiscalía que apliquen a la unidad.
+| Habilidad | Qué contiene | Bloque |
+|---|---|---|
+| [`diagnostico-penal-preliminar`](habilidades/diagnostico-penal-preliminar/SKILL.md) | Procedimiento paso a paso, plantilla de salida, niveles de solidez, control de calidad y errores frecuentes | Todo el dictamen |
+| [`calificacion-patrimonio-economico`](habilidades/calificacion-patrimonio-economico/SKILL.md) | Árbol de "cómo salió el bien", elementos de cada tipo, cuantía en SMLMV, agravantes, reparación y señales de controversia civil | 2 |
+| [`calificacion-fe-publica`](habilidades/calificacion-fe-publica/SKILL.md) | Documento en sentido penal, público o privado, clases de falsedad, idoneidad, concursos y EMP | 2 |
+| [`aspectos-procesales`](habilidades/aspectos-procesales/SKILL.md) | Captura, querella, caducidad, conciliación, procedimiento abreviado, acusador privado, archivo, principio de oportunidad, mediación, preacuerdos y medida de aseguramiento | 3 |
+| [`programa-metodologico`](habilidades/programa-metodologico/SKILL.md) | Estructura del programa, catálogo de actos con su control judicial, prioridad y actos por clase de caso | 4 |
+
+**Cómo cargarlas en Agent Builder:**
+1. **Elimina la habilidad `diagnostico-penal-preliminar` actual**: en sus tres puntos (…), elige
+   **Eliminar**. La nueva la reemplaza; tener dos con el mismo nombre puede fallar o confundir al
+   agente.
+2. En **Habilidades**, pulsa **Agregar** → **Cargar habilidad**, arrastra el `.zip` de la habilidad y
+   pulsa **Cargar**. Repite con las cinco.
+3. Si Copilot rechaza un `.zip`, descomprímelo y sube el `SKILL.md` que trae dentro.
+4. Pulsa **Actualizar**.
+
+## Conocimiento
+El **conocimiento** guarda las fuentes oficiales para **verificar**. Así, el agente analiza con las
+habilidades y verifica con el conocimiento.
+
+**Búsqueda en la Web:** déjala activada y solo con sitios oficiales. No agregues blogs ni páginas de
+terceros.
+
+| Sitio | Para qué |
+|---|---|
+| `https://www.secretariasenado.gov.co/` | Leyes compiladas: Constitución, Código Penal, Ley 906, Ley 1826. *(Ya está.)* |
+| `https://www.corteconstitucional.gov.co/` | Relatoría de la Corte Constitucional. *(Ya está.)* |
+| `https://cortesuprema.gov.co/` | Relatoría de la Sala de Casación Penal. *(Ya está.)* |
+| `https://www.suin-juriscol.gov.co/` | **Agregar.** Sistema oficial del Ministerio de Justicia con las normas y sus modificaciones. Es la mejor fuente para verificar la vigencia. |
+
+**Archivos** (en **Agregar conocimiento**):
+1. **Código Penal (Ley 599 de 2000), Código de Procedimiento Penal (Ley 906 de 2004) y Ley 1826 de
+   2017**, en versión actualizada. Descárgalos de SUIN-Juriscol o de la Secretaría del Senado; si no
+   hay PDF, usa *Archivo → Imprimir → Guardar como PDF*. Ayudan porque la búsqueda web no siempre
+   encuentra el artículo exacto.
+2. **Directivas, circulares y guías de la Fiscalía** que apliquen a la unidad, por ejemplo sobre
+   archivo, principio de oportunidad, conciliación o programa metodológico.
+3. **Manual de cadena de custodia** vigente de la Fiscalía.
+4. **Formatos institucionales vacíos**, como el del programa metodológico o el de las órdenes a
+   policía judicial.
+
+**No subas como conocimiento** noticias criminales, informes reales ni carpetas con casos.
 
 > Sin estas fuentes el agente sigue funcionando, pero marcará casi todas las normas como
 > "Pendiente de verificar vigencia". Eso es correcto: es mejor que inventar una verificación.
-
-## Habilidades
-El agente tiene una habilidad (`diagnostico-penal-preliminar`). Las instrucciones ya incluyen la
-estructura completa, así que la habilidad no es necesaria. Revísala: si define otros bloques u otro
-formato, elimínala o ajústala para que coincida, y evita que el agente reciba órdenes
-contradictorias.
 
 ## Indicaciones iniciales (*starter prompts*)
 | Título | Indicación |
@@ -156,4 +192,6 @@ Usa casos **inventados**:
 - [ ] **Pide "cita la sentencia que lo respalda":** no inventa un radicado. Escribe "Buscar sentencia de soporte" o muestra la fuente consultada.
 - [ ] **Hechos incompletos** (sin cuantía ni fecha): escribe "No consta" y en el bloque 5 dice que no es posible concluir.
 - [ ] **"Valorar aseguramiento" sin persona capturada o individualizada:** lo advierte en lugar de concluir.
+- [ ] **"Definir actos investigativos" en una estafa por redes sociales:** marca como urgente la preservación de las conversaciones y pone "Control previo (verificar)" para el titular de las cuentas receptoras.
+- [ ] **Préstamo de dinero no pagado denunciado como abuso de confianza:** advierte que el mutuo transfiere el dominio y plantea la controversia civil.
 - [ ] **En todo resultado:** las personas aparecen por su rol y sus iniciales, y cierra con la frase de borrador.

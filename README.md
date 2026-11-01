@@ -39,6 +39,13 @@ un informe anónimo       qué mejorar                 copiar y pegar
 | [`plantillas/registro-documentos.csv`](plantillas/registro-documentos.csv) | Hoja de control donde se pegan las filas del agente 1 |
 | [`agentes/plantilla-agente.md`](agentes/plantilla-agente.md) | Plantilla para diseñar nuevos agentes |
 
+### Habilidades de Copilot
+
+[`agentes/habilidades/`](agentes/habilidades/) tiene cinco habilidades (`SKILL.md`) para el agente 6:
+diagnóstico completo, calificación de patrimonio económico, calificación de fe pública, aspectos
+procesales y programa metodológico. Los pasos para cargarlas están en la ficha del
+[agente 6](agentes/06-analisis-noticia-criminal.md#habilidades).
+
 ## ⚠️ Privacidad — leer antes de usar
 
 - La información de las investigaciones penales tiene **reserva** y contiene **datos personales

@@ -11,6 +11,11 @@ su rendimiento. Flujo: prompt de radiografía en Copilot → informe anonimizado
 - `agentes/` — un archivo por agente (`NN-nombre.md`) con estos campos: Nombre, Descripción,
   Instrucciones, Conocimiento, Indicaciones iniciales y Cómo probarlo. Basarse en
   `agentes/plantilla-agente.md`; los pasos para crearlos están en `agentes/COMO-CREAR-AGENTES.md`.
+- `agentes/habilidades/<nombre>/SKILL.md` — habilidades para cargar en Agent Builder (Copilot exige un
+  `SKILL.md` o un `.zip` que lo contenga). Frontmatter YAML: `name` igual al nombre de la carpeta, en
+  minúsculas y con guiones; `description` entre comillas, de 1.024 caracteres o menos, que diga
+  cuándo invocarla. Las referencias normativas van como orientativas, con la marca "verificar". Los
+  `.zip` no se suben al repositorio: se generan para entregarlos.
 - `analisis/` — diagnósticos y planes de mejora a partir del informe de Copilot (solo datos anonimizados).
 - `plantillas/` — plantillas vacías (CSV/Excel/Word) sin ningún dato real.
 - `datos/` — documentos reales para uso local. **Está en `.gitignore` y nunca se sube.**

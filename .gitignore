@@ -30,3 +30,6 @@ venv/
 Thumbs.db
 .vscode/
 .idea/
+
+# Paquetes de habilidades generados (se entregan, no se versionan)
+*.zip

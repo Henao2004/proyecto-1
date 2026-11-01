@@ -25,7 +25,7 @@ un informe anónimo       qué mejorar                 copiar y pegar
 | # | Agente | Para qué | Cuándo crearlo |
 |---|---|---|---|
 | 1 | [Lector de documentos](agentes/01-lector-documentos.md) | Saca de un documento los datos clave, fechas, tareas y alertas, o busca un dato puntual en un expediente | Semana 1 |
-| 2 | [Redactor del despacho](agentes/02-redactor-despacho.md) | Corrige y ajusta textos con su estilo desde el primer intento; correos de remisión y respuestas | Semana 1 |
+| 2 | [Redactor del despacho](agentes/02-redactor-despacho.md) | Corrige y ajusta textos con su estilo desde el primer intento; correos de remisión, respuestas, reiteraciones y lenguaje claro. Versión completa con 3 habilidades | Semana 1 |
 | 3 | [Citaciones y solicitudes](agentes/03-citaciones-solicitudes.md) | Documento + correo de remisión + verificación, sin inventar datos | Semana 2 |
 | 5 | [Revisor antes de enviar](agentes/05-revisor-antes-de-enviar.md) | Semáforo de errores antes de enviar: datos de otro caso, anexos, fechas | Semana 2 |
 | 4 | [Control de pendientes](agentes/04-control-pendientes.md) | Tablero de solicitudes sin respuesta, reiteraciones y filas para el Excel | Semana 3 |
@@ -41,10 +41,13 @@ un informe anónimo       qué mejorar                 copiar y pegar
 
 ### Habilidades de Copilot
 
-[`agentes/habilidades/`](agentes/habilidades/) tiene cinco habilidades (`SKILL.md`) para el agente 6:
-diagnóstico completo, calificación de patrimonio económico, calificación de fe pública, aspectos
-procesales y programa metodológico. Los pasos para cargarlas están en la ficha del
-[agente 6](agentes/06-analisis-noticia-criminal.md#habilidades).
+[`agentes/habilidades/`](agentes/habilidades/) tiene las habilidades (`SKILL.md`) que se cargan en
+Agent Builder:
+
+| Agente | Habilidades |
+|---|---|
+| [2 — Redactor del despacho](agentes/02-redactor-despacho.md#habilidades) | `estilo-institucional`, `correccion-ortografica`, `correos-del-despacho` |
+| [6 — Análisis de noticia criminal](agentes/06-analisis-noticia-criminal.md#habilidades) | `diagnostico-penal-preliminar`, `calificacion-patrimonio-economico`, `calificacion-fe-publica`, `aspectos-procesales`, `programa-metodologico` |
 
 ## ⚠️ Privacidad — leer antes de usar
 

@@ -25,7 +25,7 @@ un informe anónimo       qué mejorar                 copiar y pegar
 
 | # | Agente | Para qué | Cuándo crearlo |
 |---|---|---|---|
-| 1 | [Lector de documentos](agentes/01-lector-documentos.md) | Saca de un documento los datos clave, fechas, tareas y alertas, o busca un dato puntual en un expediente | Semana 1 |
+| 1 | [Lector de documentos y respuestas](agentes/01-lector-documentos.md) | Analiza las respuestas que llegan (a qué responden, constancia o fondo, completitud, anexos, datos útiles, actualización de la matriz y resumen para el fiscal); fichas, búsquedas, cronología e intervinientes de expedientes. Versión completa con 2 habilidades | Semana 1 |
 | 2 | [Redactor del despacho](agentes/02-redactor-despacho.md) | Corrige y ajusta textos con su estilo desde el primer intento; correos de remisión, respuestas, reiteraciones y lenguaje claro. Versión completa con 3 habilidades | Semana 1 |
 | 3 | [Citaciones y solicitudes](agentes/03-citaciones-solicitudes.md) | Citaciones (también virtuales), solicitudes a entidades (vehículos, RUNT, patios), órdenes a policía judicial y reiteraciones: documento, correo, evento para el calendario y fila para la matriz. Versión completa con 3 habilidades | Semana 2 |
 | 5 | [Revisor antes de enviar](agentes/05-revisor-antes-de-enviar.md) | Semáforo de errores antes de enviar: datos de otro caso, anexos, fechas | Semana 2 |
@@ -49,6 +49,7 @@ Agent Builder:
 
 | Agente | Habilidades |
 |---|---|
+| [1 — Lector de documentos y respuestas](agentes/01-lector-documentos.md#habilidades) | `lectura-de-respuestas`, `analisis-de-expedientes` |
 | [2 — Redactor del despacho](agentes/02-redactor-despacho.md#habilidades) | `estilo-institucional`, `correccion-ortografica`, `correos-del-despacho` |
 | [3 — Citaciones y solicitudes](agentes/03-citaciones-solicitudes.md#habilidades) | `citaciones-y-entrevistas`, `solicitudes-a-entidades`, `ordenes-policia-judicial` |
 | [4 — Control de pendientes](agentes/04-control-pendientes.md#habilidades) | `seguimiento-por-etapas`, `barrido-de-correo` |

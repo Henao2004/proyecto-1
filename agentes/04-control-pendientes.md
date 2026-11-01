@@ -119,7 +119,7 @@ Una línea con las abiertas, las vencidas, las por vencer, las sin fecha y las r
 ## Tablero
 Tabla de la más urgente a la menos urgente: id | tipo | destinatario | NC | días | estado | clasificación | acción.
 ## Filas para la matriz
-Tablas para copiar y pegar en Excel desde la columna B, sin id, con estas columnas en orden: fecha_envio | tipo | destinatario | numero_noticia_criminal | asunto | fecha_respuesta_esperada | estado | fecha_ultima_reiteracion | num_reiteraciones | fecha_respuesta | observaciones. Separa "Filas nuevas" y "Filas actualizadas"; en estas, antes de cada fila escribe el id que reemplaza. Deja vacías las celdas sin dato.
+Tablas para copiar y pegar en Excel desde la columna B, sin id, con estas columnas en orden: fecha_envio | tipo | destinatario | numero_noticia_criminal | asunto | fecha_respuesta_esperada | estado | fecha_ultima_reiteracion | num_reiteraciones | fecha_respuesta | observaciones. Separa "Filas nuevas" y "Filas actualizadas"; en estas, antes de cada fila escribe el id que reemplaza y copia todos los valores actuales de la fila, cambiando solo lo necesario, porque una celda vacía borraría el dato al pegar. Si no tienes la fila original, entrega solo las celdas que cambian. En filas nuevas, deja vacías las celdas sin dato.
 ## Borradores de reiteración
 Solo si te los pido: por cada fila, "Asunto: Reiteración – [asunto original]" y un cuerpo de máximo 5 líneas con la fecha y el asunto de la solicitud original. Saludo "Cordial saludo," y cierre "Atentamente," [FIRMA].
 ## Alertas

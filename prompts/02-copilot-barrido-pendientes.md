@@ -8,8 +8,12 @@ agente 4 no puede leer el correo directamente.
 **Cómo usarlo:**
 1. Abra Microsoft 365 Copilot, pestaña **Trabajo**.
 2. Copie el bloque de abajo, cambie la fecha de hoy y envíelo.
-3. Copie la tabla de "Filas nuevas", haga clic en la **columna B** de la primera fila vacía de la
-   matriz y pegue. Para las "Filas actualizadas", busque el id en la matriz y pegue desde su columna B.
+3. Compare la tabla con la matriz:
+   - **Solicitudes que no están en la matriz:** copie esas filas, haga clic en la **columna B** de la
+     primera fila vacía y pegue.
+   - **Solicitudes que ya están:** actualice a mano solo las celdas que cambiaron (estado, fecha de
+     respuesta y observaciones). No pegue la fila completa encima, porque las celdas vacías borrarían
+     datos.
 
 > El resultado tiene datos de casos: úselo solo dentro de la entidad. **No lo pegue en Claude ni en
 > ninguna herramienta externa.**

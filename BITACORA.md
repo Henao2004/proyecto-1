@@ -34,7 +34,10 @@ casos: solo decisiones, estado y pendientes.
    conocimiento, indicaciones y pruebas.
 5. Plantillas: matriz de pendientes en Excel con alertas (probada con LibreOffice), directorio de
    entidades, hoja de medición y registro de documentos.
-6. Guía de uso diario simple (`GUIA-USO-DIARIO.md`), también publicada como página de Claude.
+6. Guía de uso diario (`GUIA-USO-DIARIO.md`), también publicada como página de Claude, compartida por
+   enlace. Por cada agente explica para qué sirve, cómo funciona en 3 pasos, qué hace, qué no hace,
+   cuándo usarlo, un ejemplo y frases para copiar (iguales a sus indicaciones de inicio). Al final trae
+   los momentos del día y cuatro reglas.
 
 ## Estado de los agentes
 

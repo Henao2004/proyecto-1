@@ -146,3 +146,42 @@ control en Excel, radicador y un documento de caso.
 
 **Pendiente:** horas en audiencias y por tarea, minutos por citación, ajustes a Copilot por texto, conteo
 manual de pendientes y la estructura de la base de control en Excel.
+
+## 9. Datos de 30 días: 2 al 31 de octubre de 2026
+
+Informe generado por Copilot buscando en su correo, calendario y archivos. Ya venía sin números de caso.
+Octubre de 2026 tuvo **20 días hábiles** (el 12 fue festivo).
+
+| Dato | Resultado | Por día hábil | Lectura |
+|---|---|---|---|
+| Correos recibidos | 155 | ≈ 7,8 | Sobre todo respuestas de juzgados, entidades, tránsito y policía judicial |
+| Correos enviados | 78 | ≈ 3,9 | Sobre todo solicitudes, seguimientos, citaciones y remisiones |
+| Eventos en el calendario | 2 (1 hora) | — | **Las diligencias casi no se registran en Outlook** |
+| Asuntos que requieren seguimiento | Al menos 6 tipos | — | Audiencias sin fecha, entidades sin respuesta de fondo, entrevistas por agendar, declaraciones sin confirmar, anexos por incorporar |
+| Archivos elaborados o modificados | 33 | ≈ 1,7 | Oficios, experticias técnicas, automotores, preguntas para entrevistas, declaraciones, hechos jurídicamente relevantes, archivos |
+
+**Inconsistencia que hay que confirmar:** la semana del 26 al 30 de octubre mostró 39 correos enviados, la
+mitad del mes. Puede ser que el volumen subiera a final de mes (por ejemplo, por el cambio de unidad) o
+que las búsquedas de Copilot no traigan todos los resultados. Conviene verificarlo contando en Outlook.
+
+**Hallazgos nuevos:**
+1. **El núcleo del trabajo son las solicitudes a terceros y su seguimiento:** juzgados, centros de
+   servicios, tránsito, RUNT, Colpensiones, bancos y otras entidades.
+2. **Hay un grupo muy repetitivo de solicitudes sobre vehículos:** información del RUNT, comparendos y
+   fotodetecciones, estudios técnicos de automotores e ingreso a patios. Es candidato directo a plantillas.
+3. **Los pendientes tienen varias etapas:** no basta con saber si "respondieron". Hay que distinguir
+   *constancia de radicación* de *respuesta de fondo* y, después, *anexo incorporado y comunicado al fiscal*.
+4. **Coordina entrevistas y declaraciones (también virtuales) y prepara cuestionarios**, pero nada de eso
+   queda en el calendario.
+5. **Copilot pudo identificar pendientes leyendo su correo.** Un prompt semanal puede alimentar la
+   matriz de seguimiento sin tener que revisar correo por correo.
+
+**Prioridades actualizadas:**
+1. Completar el **agente 3** con habilidades de solicitudes a entidades (incluido el grupo de vehículos),
+   órdenes a policía judicial y citaciones o entrevistas.
+2. Rediseñar el **agente 4**: prompt semanal en Copilot que lea el correo y estados de pendiente en
+   etapas (radicada → respuesta de fondo → incorporada).
+3. **Hábito inmediato:** registrar en el calendario de Outlook toda diligencia (entrevistas,
+   declaraciones, audiencias), con recordatorio.
+4. Usar el **agente 1** para procesar las respuestas que llegan con anexos.
+5. Agregar al **agente 6** una habilidad para preparar cuestionarios de entrevista.

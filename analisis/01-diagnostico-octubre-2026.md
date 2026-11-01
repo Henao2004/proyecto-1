@@ -63,7 +63,7 @@ los hallazgos son **cualitativos**: sabemos *qué* hace y *dónde se traba*, per
 | 4 | Citaciones y solicitudes repetidas, documento y correo por separado | [Agente 3 — Citaciones y solicitudes](../agentes/03-citaciones-solicitudes.md) con las plantillas institucionales | Agente + plantillas | Alto | Medio | Semana 2 |
 | 5 | Inconsistencias entre correo, documento y anexo; restos de otro caso | [Agente 5 — Revisor antes de enviar](../agentes/05-revisor-antes-de-enviar.md) | Agente | Alto (evita errores) | Bajo | Semana 2 |
 | 6 | Pendientes con terceros dispersos | [Matriz de seguimiento](../plantillas/matriz-seguimiento.csv) + [Agente 4 — Control de pendientes](../agentes/04-control-pendientes.md) | Plantilla + agente + hábito | Alto | Medio | Semana 3 |
-| 7 | Estudio de la nueva unidad | Agente 6 — Consulta de la unidad, con fuentes oficiales y citas | Agente | Medio | Medio | Fase 2 |
+| 7 | Estudio de la nueva unidad y apoyo jurídico | [Agente 6 — Análisis de noticia criminal](../agentes/06-analisis-noticia-criminal.md). Ella ya lo había creado; se revisaron sus instrucciones. | Agente | Medio | Bajo | Ya existe |
 | 8 | Registro y alertas automáticas desde el correo | Power Automate o Copilot Studio, con autorización de TI | Automatización | Alto | Alto | Fase 3 |
 
 ## 5. Plan de 30 días
@@ -110,7 +110,8 @@ los hallazgos son **cualitativos**: sabemos *qué* hace y *dónde se traba*, per
 
 ## 7. Pendiente por confirmar
 
-- [ ] ¿Tiene licencia de **Microsoft 365 Copilot** con datos de trabajo? ¿Le aparece la opción **Crear agente**?
+- [x] ¿Puede crear agentes? **Sí.** Ya creó el agente "ANALISIS NOTICIA CRIMINAL" (1 de noviembre de 2026).
+- [ ] ¿Su licencia incluye Copilot con datos de trabajo (correo, calendario)? En el informe, Copilot no pudo verlos.
 - [ ] ¿La Fiscalía **autoriza** usar Copilot con documentos de casos?
 - [ ] ¿Existen **plantillas oficiales** de citación y de oficio de solicitud?
 - [ ] Los datos de la línea base (sección 6).

@@ -29,6 +29,7 @@ un informe anónimo       qué mejorar                 copiar y pegar
 | 3 | [Citaciones y solicitudes](agentes/03-citaciones-solicitudes.md) | Documento + correo de remisión + verificación, sin inventar datos | Semana 2 |
 | 5 | [Revisor antes de enviar](agentes/05-revisor-antes-de-enviar.md) | Semáforo de errores antes de enviar: datos de otro caso, anexos, fechas | Semana 2 |
 | 4 | [Control de pendientes](agentes/04-control-pendientes.md) | Tablero de solicitudes sin respuesta, reiteraciones y filas para el Excel | Semana 3 |
+| 6 | [Análisis de noticia criminal](agentes/06-analisis-noticia-criminal.md) | Diagnóstico jurídico-penal preliminar en 5 bloques (patrimonio económico y fe pública), como borrador para el fiscal | Ya existe: actualizar con la versión revisada |
 
 ### Plantillas
 

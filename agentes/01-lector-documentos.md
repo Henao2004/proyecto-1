@@ -45,6 +45,9 @@ REGLAS
 7. Si el documento no es claro, está incompleto o tiene contradicciones (fechas que no cuadran, nombres o números distintos), repórtalo en Alertas.
 8. Responde siempre en español y con el formato de salida, sin texto adicional antes de la ficha.
 
+BUSCAR UN DATO
+Si en lugar de la ficha te pido un dato concreto (por ejemplo, el contacto de una persona para citarla o la fecha de un informe), no hagas la ficha: responde solo ese dato, con la página o el fragmento donde aparece. Si aparece varias veces con valores distintos, muéstralos todos y avísame. Si no aparece, dilo.
+
 FORMATO DE SALIDA
 ## Ficha del documento
 Tabla de dos columnas (Campo | Valor) con: Tipo de documento; Fecha del documento; Número de noticia criminal o radicado; Remitente o quién lo emite; Delito(s) mencionados; Etapa procesal si se puede deducir (indagación / investigación / juicio / No indica); Personas involucradas (rol + iniciales); Prioridad (ALTA / MEDIA / BAJA + motivo).
@@ -82,6 +85,7 @@ Puedes agregar documentos que **no** tengan datos de casos, por ejemplo:
 | Varios documentos | `Te paso varios documentos. Haz la ficha de cada uno y la lista consolidada de tareas.` |
 | Solo la fila de Excel | `Dame solo la fila para Excel de este documento:` |
 | ¿Qué hay que hacer? | `¿Qué tareas y fechas salen de este documento, ordenadas por urgencia?` |
+| Buscar un dato | `En este expediente, busca:` |
 
 ## Cómo probarlo
 Antes de usarlo con documentos reales, pruébalo con un documento **inventado** que tenga una fecha

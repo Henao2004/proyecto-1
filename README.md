@@ -26,7 +26,7 @@ un informe anónimo       qué mejorar                 copiar y pegar
 |---|---|---|---|
 | 1 | [Lector de documentos](agentes/01-lector-documentos.md) | Saca de un documento los datos clave, fechas, tareas y alertas, o busca un dato puntual en un expediente | Semana 1 |
 | 2 | [Redactor del despacho](agentes/02-redactor-despacho.md) | Corrige y ajusta textos con su estilo desde el primer intento; correos de remisión, respuestas, reiteraciones y lenguaje claro. Versión completa con 3 habilidades | Semana 1 |
-| 3 | [Citaciones y solicitudes](agentes/03-citaciones-solicitudes.md) | Documento + correo de remisión + verificación, sin inventar datos | Semana 2 |
+| 3 | [Citaciones y solicitudes](agentes/03-citaciones-solicitudes.md) | Citaciones (también virtuales), solicitudes a entidades (vehículos, RUNT, patios), órdenes a policía judicial y reiteraciones: documento, correo, evento para el calendario y fila para la matriz. Versión completa con 3 habilidades | Semana 2 |
 | 5 | [Revisor antes de enviar](agentes/05-revisor-antes-de-enviar.md) | Semáforo de errores antes de enviar: datos de otro caso, anexos, fechas | Semana 2 |
 | 4 | [Control de pendientes](agentes/04-control-pendientes.md) | Tablero de solicitudes sin respuesta, reiteraciones y filas para el Excel | Semana 3 |
 | 6 | [Análisis de noticia criminal](agentes/06-analisis-noticia-criminal.md) | Diagnóstico jurídico-penal preliminar en 5 bloques (patrimonio económico y fe pública), como borrador para el fiscal | Ya existe: actualizar con la versión revisada |
@@ -36,6 +36,7 @@ un informe anónimo       qué mejorar                 copiar y pegar
 | Archivo | Para qué sirve |
 |---|---|
 | [`plantillas/medicion-carga-trabajo.xlsx`](plantillas/medicion-carga-trabajo.xlsx) | Medición de la carga de trabajo (semana 1 y semana 4): datos de Outlook, registro diario, mediciones puntuales y resumen automático |
+| [`plantillas/directorio-entidades.csv`](plantillas/directorio-entidades.csv) | Directorio de correos institucionales de entidades, para el conocimiento del agente 3 |
 | [`plantillas/matriz-seguimiento.csv`](plantillas/matriz-seguimiento.csv) | Matriz de seguimiento de solicitudes enviadas, que usa el agente 4 |
 | [`plantillas/registro-documentos.csv`](plantillas/registro-documentos.csv) | Hoja de control donde se pegan las filas del agente 1 |
 | [`agentes/plantilla-agente.md`](agentes/plantilla-agente.md) | Plantilla para diseñar nuevos agentes |
@@ -48,6 +49,7 @@ Agent Builder:
 | Agente | Habilidades |
 |---|---|
 | [2 — Redactor del despacho](agentes/02-redactor-despacho.md#habilidades) | `estilo-institucional`, `correccion-ortografica`, `correos-del-despacho` |
+| [3 — Citaciones y solicitudes](agentes/03-citaciones-solicitudes.md#habilidades) | `citaciones-y-entrevistas`, `solicitudes-a-entidades`, `ordenes-policia-judicial` |
 | [6 — Análisis de noticia criminal](agentes/06-analisis-noticia-criminal.md#habilidades) | `diagnostico-penal-preliminar`, `calificacion-patrimonio-economico`, `calificacion-fe-publica`, `aspectos-procesales`, `programa-metodologico` |
 
 ## ⚠️ Privacidad — leer antes de usar

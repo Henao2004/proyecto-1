@@ -1,0 +1,32 @@
+# ── Datos reales: NUNCA se suben (el repo es de GitHub y puede ser público) ──
+datos/*
+!datos/.gitkeep
+
+# Documentos de trabajo que podrían contener información reservada de casos
+*.pdf
+*.doc
+*.docx
+*.xls
+*.xlsx
+*.msg
+*.eml
+# ...excepto plantillas vacías creadas a propósito
+!plantillas/**
+
+# Credenciales y configuración local
+.env
+.env.*
+.claude/settings.local.json
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.pytest_cache/
+
+# Sistema operativo / editores
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

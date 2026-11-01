@@ -6,6 +6,10 @@ Penal Oral Acusatorio — Ley 906 de 2004) y diseñarle **agentes de Microsoft 3
 su rendimiento. Flujo: prompt de radiografía en Copilot → informe anonimizado → análisis con Claude
 → agentes listos para copiar en Copilot.
 
+## Al empezar y al terminar
+- **Lee `BITACORA.md` antes de trabajar**: tiene el estado, las decisiones y los pendientes.
+- **Actualízala al terminar** cada sesión, sin datos de casos.
+
 ## Estructura
 - `prompts/` — prompts para pegar en Copilot, numerados (`01-…`).
 - `agentes/` — un archivo por agente (`NN-nombre.md`) con estos campos: Nombre, Descripción,

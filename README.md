@@ -12,6 +12,8 @@ trabajo y entrega        el informe y priorizan      Copilot, listos para
 un informe anónimo       qué mejorar                 copiar y pegar
 ```
 
+> **Estado del proyecto:** [`BITACORA.md`](BITACORA.md) resume qué se hizo, las decisiones y los pendientes.
+>
 > **Uso diario:** [`GUIA-USO-DIARIO.md`](GUIA-USO-DIARIO.md) dice qué agente usar en cada momento del día, con las frases para empezar.
 
 ## ¿Qué hay aquí?

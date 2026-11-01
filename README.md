@@ -35,6 +35,7 @@ un informe anónimo       qué mejorar                 copiar y pegar
 
 | Archivo | Para qué sirve |
 |---|---|
+| [`plantillas/medicion-carga-trabajo.xlsx`](plantillas/medicion-carga-trabajo.xlsx) | Medición de la carga de trabajo (semana 1 y semana 4): datos de Outlook, registro diario, mediciones puntuales y resumen automático |
 | [`plantillas/matriz-seguimiento.csv`](plantillas/matriz-seguimiento.csv) | Matriz de seguimiento de solicitudes enviadas, que usa el agente 4 |
 | [`plantillas/registro-documentos.csv`](plantillas/registro-documentos.csv) | Hoja de control donde se pegan las filas del agente 1 |
 | [`agentes/plantilla-agente.md`](agentes/plantilla-agente.md) | Plantilla para diseñar nuevos agentes |

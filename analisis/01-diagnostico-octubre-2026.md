@@ -111,7 +111,38 @@ los hallazgos son **cualitativos**: sabemos *qué* hace y *dónde se traba*, per
 ## 7. Pendiente por confirmar
 
 - [x] ¿Puede crear agentes? **Sí.** Ya creó el agente "ANALISIS NOTICIA CRIMINAL" (1 de noviembre de 2026).
-- [ ] ¿Su licencia incluye Copilot con datos de trabajo (correo, calendario)? En el informe, Copilot no pudo verlos.
+- [x] ¿Su licencia incluye Copilot con datos de trabajo? **Sí, al menos búsqueda.** El 1 de noviembre,
+  Copilot encontró correos, eventos y documentos de su semana (ver sección 8).
 - [ ] ¿La Fiscalía **autoriza** usar Copilot con documentos de casos?
 - [ ] ¿Existen **plantillas oficiales** de citación y de oficio de solicitud?
 - [ ] Los datos de la línea base (sección 6).
+
+## 8. Línea base parcial: semana del 26 al 30 de octubre de 2026
+
+Datos obtenidos por Copilot buscando en su correo, calendario y archivos (1 de noviembre de 2026).
+Solo se registran cifras y tipos de documento, sin números de caso.
+
+| Dato | Resultado | Lectura |
+|---|---|---|
+| Correos recibidos | 46 (≈ 9 por día) | Puede ser una cifra menor a la real: la búsqueda de Copilot no siempre trae todo |
+| Correos enviados | 39 (≈ 8 por día) | Envía casi tanto como recibe: su trabajo es sobre todo **producir** comunicaciones |
+| Eventos en el calendario | 2 | **Las audiencias no se registran en Outlook.** Hay que confirmar dónde se controlan |
+| Solicitudes pendientes | No se pudieron contar | **No hay un lugar único de control de pendientes.** Refuerza la matriz y el agente 4 |
+| Documentos modificados | 8 | Ver tipos abajo |
+
+**Tipos de documento de la semana:** escrito de acusación, hechos jurídicamente relevantes, análisis de
+noticia criminal, modelo de archivo por atipicidad, órdenes o programas para policía judicial, base de
+control en Excel, radicador y un documento de caso.
+
+**Hallazgos nuevos:**
+1. El trabajo tiene un componente **jurídico sustancial** (acusaciones, análisis, archivos), no solo
+   administrativo. Esto refuerza el agente 6.
+2. Las **órdenes y programas para policía judicial** son frecuentes. Esto confirma que conviene agregar
+   una habilidad `ordenes-policia-judicial` al agente 3.
+3. **Ya usa modelos** (por ejemplo, de archivo por atipicidad). Pueden cargarse vacíos como
+   conocimiento en los agentes.
+4. Copilot puede buscar en su correo y sus archivos: algunos agentes podrían consultar Outlook
+   directamente, si la entidad lo autoriza.
+
+**Pendiente:** horas en audiencias y por tarea, minutos por citación, ajustes a Copilot por texto, conteo
+manual de pendientes y la estructura de la base de control en Excel.

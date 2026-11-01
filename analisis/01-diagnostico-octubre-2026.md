@@ -62,7 +62,7 @@ los hallazgos son **cualitativos**: sabemos *qué* hace y *dónde se traba*, per
 | 3 | Cambio constante de contexto | Trabajar por bloques: citaciones juntas, correo en 3 momentos fijos del día, seguimiento los lunes y jueves | Hábito | Medio | Bajo | Semana 1 |
 | 4 | Citaciones y solicitudes repetidas, documento y correo por separado | [Agente 3 — Citaciones y solicitudes](../agentes/03-citaciones-solicitudes.md) con las plantillas institucionales | Agente + plantillas | Alto | Medio | Semana 2 |
 | 5 | Inconsistencias entre correo, documento y anexo; restos de otro caso | [Agente 5 — Revisor antes de enviar](../agentes/05-revisor-antes-de-enviar.md) | Agente | Alto (evita errores) | Bajo | Semana 2 |
-| 6 | Pendientes con terceros dispersos | [Matriz de seguimiento](../plantillas/matriz-seguimiento.csv) + [Agente 4 — Control de pendientes](../agentes/04-control-pendientes.md) | Plantilla + agente + hábito | Alto | Medio | Semana 3 |
+| 6 | Pendientes con terceros dispersos | [Matriz de seguimiento](../plantillas/matriz-seguimiento.xlsx) + [Agente 4 — Control de pendientes](../agentes/04-control-pendientes.md) | Plantilla + agente + hábito | Alto | Medio | Semana 3 |
 | 7 | Estudio de la nueva unidad y apoyo jurídico | [Agente 6 — Análisis de noticia criminal](../agentes/06-analisis-noticia-criminal.md). Ella ya lo había creado; se revisaron sus instrucciones. | Agente | Medio | Bajo | Ya existe |
 | 8 | Registro y alertas automáticas desde el correo | Power Automate o Copilot Studio, con autorización de TI | Automatización | Alto | Alto | Fase 3 |
 
@@ -80,7 +80,7 @@ los hallazgos son **cualitativos**: sabemos *qué* hace y *dónde se traba*, per
 - Crear el **agente 5 (Revisor)**. Regla: todo envío importante pasa por el revisor antes de salir.
 
 **Semana 3: control de pendientes**
-- Crear la matriz de seguimiento en Excel, en OneDrive, a partir de `plantillas/matriz-seguimiento.csv`.
+- Crear la matriz de seguimiento en Excel, en OneDrive, a partir de `plantillas/matriz-seguimiento.xlsx`.
 - Cargar los pendientes actuales, empezando por las **solicitudes de audiencia sin programar**.
 - Crear el **agente 4 (Control de pendientes)** y revisarlo cada lunes y jueves.
 

@@ -38,4 +38,7 @@ su rendimiento. Flujo: prompt de radiografía en Copilot → informe anonimizado
 - Los prompts para el chat de Copilot deben ser compactos (menos de ~4.000 caracteres).
 - Los CSV usan punto y coma (`;`) como separador para que Excel en español los abra bien. Si cambias
   las columnas del agente 1, actualiza `plantillas/registro-documentos.csv`.
+- `plantillas/matriz-seguimiento.xlsx` es compartida por los agentes 3 y 4 y el prompt 02: columnas B..L
+  y estados (Pendiente, Radicada, Reiterada, Respondida, Programada, Cerrada) deben ser idénticos en los
+  cuatro. Se regenera con un script de openpyxl; probar las alertas con LibreOffice antes de publicar.
 - Commits cortos con el formato `tipo: descripción`.

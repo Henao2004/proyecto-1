@@ -84,6 +84,13 @@ casos: solo decisiones, estado y pendientes.
 - `prompts/03`: Copilot le pregunta qué aplicaciones tiene y le arma su propia lista con un plan de 4
   semanas. Pendiente: que ella lo use y comparta el resultado (no tiene datos de casos).
 
+## Productividad con Microsoft 365 (3 de noviembre de 2026)
+
+- Su computador del trabajo es **Windows**. No ve el botón de Copilot en Word, Excel ni Outlook, aunque
+  Copilot sí pudo buscar en su correo: hay que preguntarle a TI.
+- Recomendaciones de Copilot y correcciones en `analisis/02-productividad-m365.md`. Prompt siguiente:
+  `prompts/03-copilot-apps-y-pc.md` (aplicaciones y personalización del computador).
+
 ## Pendientes
 
 - [ ] Ella: estimaciones de horas por tarea, minutos por citación completa y ajustes a Copilot por texto.

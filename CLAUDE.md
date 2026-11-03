@@ -11,7 +11,8 @@ su rendimiento. Flujo: prompt de radiografía en Copilot → informe anonimizado
 - **Actualízala al terminar** cada sesión, sin datos de casos.
 
 ## Estructura
-- `prompts/` — prompts para pegar en Copilot, numerados (`01-…`).
+- `prompts/` — prompts numerados (`01-…`). Casi todos son para Copilot; si un prompt es para un chat de
+  Claude, su nombre lo dice (`NN-claude-…`), no tiene el límite de 4.000 caracteres y nunca lleva datos de casos.
 - `agentes/` — un archivo por agente (`NN-nombre.md`) con estos campos: Nombre, Descripción,
   Instrucciones, Conocimiento, Indicaciones iniciales y Cómo probarlo. Basarse en
   `agentes/plantilla-agente.md`; los pasos para crearlos están en `agentes/COMO-CREAR-AGENTES.md`.

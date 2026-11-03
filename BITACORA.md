@@ -91,6 +91,15 @@ casos: solo decisiones, estado y pendientes.
 - Recomendaciones de Copilot y correcciones en `analisis/02-productividad-m365.md`. Prompt siguiente:
   `prompts/03-copilot-apps-y-pc.md` (aplicaciones y personalización del computador).
 
+## Herramientas de Microsoft 365 (3 de noviembre de 2026)
+
+- En su computador de la Fiscalía tiene **Windows, Outlook, Teams, OneDrive y OneNote**. No sabe si tiene
+  To Do, Planner, Lists, Forms, Power Automate, Loop ni SharePoint.
+- **No ve Copilot dentro de Word, Excel ni Outlook**: usa Copilot Chat con agentes.
+- `prompts/03-copilot-productividad-m365.md` pide el plan de productividad de una vez y corrige los
+  errores de la primera respuesta de Copilot (atajo equivocado, delitos fuera de lugar, PDF escaneados y
+  cifras sin respaldo).
+
 ## Pendientes
 
 - [ ] Ella: estimaciones de horas por tarea, minutos por citación completa y ajustes a Copilot por texto.

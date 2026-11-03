@@ -22,6 +22,7 @@ un informe anónimo       qué mejorar                 copiar y pegar
 |---|---|
 | [`prompts/03-copilot-herramientas-productividad.md`](prompts/03-copilot-herramientas-productividad.md) | Prompt para Copilot: qué aplicaciones de Microsoft 365 tiene y cuáles 10 funciones le ahorrarían más tiempo. |
 | [`analisis/02-recomendaciones-herramientas.md`](analisis/02-recomendaciones-herramientas.md) | Recomendaciones de funciones de Office y Windows, programas que pedir a TI e inteligencias artificiales (cuál usar con qué información). |
+| [`prompts/03-copilot-productividad-m365.md`](prompts/03-copilot-productividad-m365.md) | Prompt para Copilot: plan de productividad con Microsoft 365 (10 funciones, plantillas, reglas, OneNote, plan de 4 semanas y atajos). |
 | [`prompts/02-copilot-barrido-pendientes.md`](prompts/02-copilot-barrido-pendientes.md) | Prompt para Copilot (lunes y jueves): revisa el correo de 15 días y entrega las filas de pendientes para la matriz. |
 | [`prompts/03-copilot-apps-y-pc.md`](prompts/03-copilot-apps-y-pc.md) | Prompt para Copilot: qué aplicaciones necesita y cómo personalizar su computador, con ajustes de seguridad. |
 | [`analisis/02-productividad-m365.md`](analisis/02-productividad-m365.md) | Funciones de Microsoft 365 que recomendó Copilot y las correcciones necesarias. |

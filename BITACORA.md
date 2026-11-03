@@ -76,6 +76,14 @@ casos: solo decisiones, estado y pendientes.
 - **La red de la Fiscalía bloquea claude.ai** (3 de noviembre de 2026). Por eso existe `guia/` con
   una versión HTML que se abre sin internet y un PDF. Se regeneran con `python3 guia/construir.py`.
 
+## Herramientas
+
+- `analisis/02-recomendaciones-herramientas.md`: las 10 funciones de Office y Windows que más tiempo
+  ahorran, programas que pedir a TI (Acrobat Pro, PowerToys) y la regla de IA: información de casos
+  solo en Copilot institucional.
+- `prompts/03`: Copilot le pregunta qué aplicaciones tiene y le arma su propia lista con un plan de 4
+  semanas. Pendiente: que ella lo use y comparta el resultado (no tiene datos de casos).
+
 ## Pendientes
 
 - [ ] Ella: estimaciones de horas por tarea, minutos por citación completa y ajustes a Copilot por texto.

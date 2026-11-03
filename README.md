@@ -20,6 +20,8 @@ un informe anónimo       qué mejorar                 copiar y pegar
 
 | Archivo | Para qué sirve |
 |---|---|
+| [`prompts/03-copilot-herramientas-productividad.md`](prompts/03-copilot-herramientas-productividad.md) | Prompt para Copilot: qué aplicaciones de Microsoft 365 tiene y cuáles 10 funciones le ahorrarían más tiempo. |
+| [`analisis/02-recomendaciones-herramientas.md`](analisis/02-recomendaciones-herramientas.md) | Recomendaciones de funciones de Office y Windows, programas que pedir a TI e inteligencias artificiales (cuál usar con qué información). |
 | [`prompts/02-copilot-barrido-pendientes.md`](prompts/02-copilot-barrido-pendientes.md) | Prompt para Copilot (lunes y jueves): revisa el correo de 15 días y entrega las filas de pendientes para la matriz. |
 | [`prompts/01-copilot-radiografia-trabajo.md`](prompts/01-copilot-radiografia-trabajo.md) | **Empieza aquí.** Prompt para Copilot que resume, de forma anonimizada, las tareas, correos, reuniones y documentos de la asistente, y lo que ella le pide a Copilot. |
 | [`agentes/COMO-CREAR-AGENTES.md`](agentes/COMO-CREAR-AGENTES.md) | Paso a paso para crear un agente en Microsoft 365 Copilot. |

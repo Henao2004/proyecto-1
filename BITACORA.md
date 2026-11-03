@@ -70,6 +70,12 @@ casos: solo decisiones, estado y pendientes.
 - **Privacidad:** nunca se guardan números de noticia criminal ni datos de casos en el repo. El 1 de
   noviembre, el usuario pegó por error tres números de noticia criminal; no se guardaron.
 
+## Guía de uso diario
+
+- Página publicada: https://claude.ai/artifact/3AzuKhNgPunQ5svdQt2tbr (compartida por enlace).
+- **La red de la Fiscalía bloquea claude.ai** (3 de noviembre de 2026). Por eso existe `guia/` con
+  una versión HTML que se abre sin internet y un PDF. Se regeneran con `python3 guia/construir.py`.
+
 ## Pendientes
 
 - [ ] Ella: estimaciones de horas por tarea, minutos por citación completa y ajustes a Copilot por texto.

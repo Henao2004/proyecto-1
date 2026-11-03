@@ -33,3 +33,6 @@ Thumbs.db
 
 # Paquetes de habilidades generados (se entregan, no se versionan)
 *.zip
+
+# Guía de uso diario: versiones sin internet (HTML y PDF), sin datos de casos
+!guia/**

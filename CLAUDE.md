@@ -22,6 +22,10 @@ su rendimiento. Flujo: prompt de radiografía en Copilot → informe anonimizado
   `.zip` no se suben al repositorio: se generan para entregarlos.
 - `analisis/` — diagnósticos y planes de mejora a partir del informe de Copilot (solo datos anonimizados).
 - `plantillas/` — plantillas vacías (CSV/Excel/Word) sin ningún dato real.
+- `guia/` — guía de uso diario. `guia-artifact.html` es la fuente de la página publicada en claude.ai;
+  `python3 guia/construir.py` genera `guia-uso-diario.html` (sin internet, fuentes incrustadas, cero
+  conexiones externas) y `guia-uso-diario.pdf`. Si cambias la guía, edita la fuente, republica la página
+  con ese archivo, regenera las dos versiones y actualiza `GUIA-USO-DIARIO.md`.
 - `datos/` — documentos reales para uso local. **Está en `.gitignore` y nunca se sube.**
 
 ## Reglas obligatorias

@@ -1,0 +1,500 @@
+<title>Guía diaria de los agentes</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Source+Sans+3:wght@400;600;700&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap">
+<style>
+/* Layout: manual de bolsillo — selector rápido arriba, luego una sección por agente
+   (para qué sirve · cómo funciona en 3 pasos · qué hace · cuándo usarlo · qué no hace · ejemplo · frases),
+   después los momentos del día y cuatro reglas. */
+:root {
+  --bg: #F5F7F9;
+  --surface: #FFFFFF;
+  --ink: #17202E;
+  --muted: #566274;
+  --line: #DCE2EA;
+  --accent: #0E5A61;
+  --accent-soft: #E2EFEF;
+  --example: #FFF8E1;
+  --example-ink: #6B5300;
+  --green: #066A41;
+  --red: #B42318; --red-soft: #FDECEA;
+  --font-display: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-body: "Source Sans 3", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0F141B; --surface: #161D27; --ink: #E6EBF2; --muted: #9AA6B7; --line: #2A3441;
+    --accent: #66BEC4; --accent-soft: #14343A; --example: #2B2611; --example-ink: #F2CB57;
+    --green: #52C98C; --red: #F7766B; --red-soft: #3A1715;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0F141B; --surface: #161D27; --ink: #E6EBF2; --muted: #9AA6B7; --line: #2A3441;
+  --accent: #66BEC4; --accent-soft: #14343A; --example: #2B2611; --example-ink: #F2CB57;
+  --green: #52C98C; --red: #F7766B; --red-soft: #3A1715;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: 16px; line-height: 1.55; }
+.page {
+  max-width: 1000px; margin: 0 auto;
+  padding-block: 28px 48px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  display: grid; gap: 36px;
+}
+h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; margin: 0; line-height: 1.2; }
+h1 { font-size: clamp(1.9rem, 4vw, 2.5rem); }
+h2 { font-size: 1.45rem; }
+h3 { font-size: 1.3rem; }
+p { margin: 0; }
+ul, ol { margin: 0; padding-left: 1.2em; }
+li { margin: 3px 0; }
+.eyebrow { font-size: .78rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); }
+.lede { font-size: 1.1rem; color: var(--muted); max-width: 62ch; }
+.head { display: grid; gap: 10px; }
+.section-head { display: grid; gap: 4px; margin-bottom: 14px; }
+.muted { color: var(--muted); }
+
+.num {
+  flex: none; width: 32px; height: 32px; border-radius: 50%;
+  display: inline-grid; place-items: center;
+  background: var(--accent); color: var(--surface);
+  font-family: var(--font-mono); font-size: .92rem; font-weight: 500;
+}
+.num.sm { width: 24px; height: 24px; font-size: .78rem; }
+
+/* Selector rápido */
+.picker { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.picker li { margin: 0; }
+.picker a {
+  display: flex; align-items: center; gap: 12px; height: 100%;
+  background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 14px;
+  color: var(--ink); text-decoration: none;
+}
+.picker a:hover { border-color: var(--accent); }
+.picker a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.picker strong { display: block; font-size: 1.02rem; }
+.picker .to { font-size: .9rem; color: var(--muted); }
+
+/* Secciones de agente */
+.agent {
+  background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 22px;
+  display: grid; gap: 18px; scroll-margin-top: 16px;
+}
+.agent-top { display: flex; gap: 14px; align-items: center; }
+.purpose { font-size: 1.08rem; max-width: 70ch; }
+.cols { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 22px; }
+.col { display: grid; gap: 16px; align-content: start; min-width: 0; }
+.block { display: grid; gap: 6px; }
+.label { font-size: .74rem; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; color: var(--muted); }
+.steps { list-style: none; padding: 0; display: grid; gap: 8px; counter-reset: paso; }
+.steps li { counter-increment: paso; display: grid; grid-template-columns: 26px minmax(0, 1fr); gap: 10px; margin: 0; }
+.steps li::before {
+  content: counter(paso); width: 24px; height: 24px; border-radius: 50%;
+  border: 1.5px solid var(--accent); color: var(--accent);
+  display: inline-grid; place-items: center; font-family: var(--font-mono); font-size: .78rem;
+}
+.example { background: var(--example); border-radius: 10px; padding: 12px 14px; font-size: .96rem; }
+.example .label { color: var(--example-ink); }
+.not { color: var(--muted); font-size: .96rem; }
+.agent.legal { border-color: var(--accent); }
+.legal-note { font-weight: 600; color: var(--accent); }
+
+.phrases { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 8px; }
+.phrase {
+  display: block; width: 100%; text-align: left; cursor: pointer;
+  font-family: var(--font-mono); font-size: .84rem; line-height: 1.45; color: var(--ink);
+  background: var(--bg); border: 1px dashed var(--line); border-radius: 6px; padding: 8px 10px;
+}
+.phrase:hover { border-color: var(--accent); border-style: solid; }
+.phrase:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.phrase .copied { display: none; margin-left: 8px; font-family: var(--font-body); font-size: .78rem; font-weight: 700; color: var(--green); }
+.phrase.is-copied { border-color: var(--green); border-style: solid; }
+.phrase.is-copied .copied { display: inline; }
+
+/* Momentos */
+.moments { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
+.m-row { display: grid; grid-template-columns: 170px minmax(0, 1fr) 220px; gap: 14px; padding: 12px 18px; border-top: 1px solid var(--line); align-items: center; }
+.m-row:first-child { border-top: 0; }
+.m-row.h { background: var(--accent-soft); color: var(--accent); font-size: .76rem; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; padding-block: 9px; }
+.m-row > * { min-width: 0; }
+.m-when { font-weight: 700; color: var(--accent); }
+.m-who { display: flex; flex-wrap: wrap; gap: 6px 10px; align-items: center; font-weight: 600; font-size: .95rem; }
+.m-who span.w { display: inline-flex; align-items: center; gap: 6px; }
+
+/* Reglas */
+.rules { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 18px 22px; display: grid; gap: 8px; }
+.rules ul { display: grid; gap: 6px; }
+.rules li.privacy { color: var(--red); font-weight: 600; }
+footer { font-size: .9rem; color: var(--muted); border-top: 1px solid var(--line); padding-top: 14px; }
+
+@media (max-width: 820px) {
+  .picker { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .cols { grid-template-columns: minmax(0, 1fr); }
+  .m-row { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+  .m-row.h { display: none; }
+}
+@media (max-width: 460px) {
+  .picker { grid-template-columns: minmax(0, 1fr); }
+  .agent { padding: 16px; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+  .phrase, .picker a { transition: border-color .15s ease; }
+}
+</style>
+
+<main class="page">
+  <header class="head">
+    <p class="eyebrow">Despacho · Fiscalía General de la Nación</p>
+    <h1>Guía diaria de los agentes</h1>
+    <p class="lede">Seis ayudantes en Copilot, cada uno para una tarea. Aquí está para qué sirve cada uno, cómo funciona, qué hace y en qué momento usarlo.</p>
+  </header>
+
+  <section aria-labelledby="t-pick">
+    <div class="section-head">
+      <h2 id="t-pick">¿Qué está haciendo?</h2>
+      <p class="muted">Toque la situación para ir directo al agente.</p>
+    </div>
+    <ul class="picker">
+      <li><a href="#agente-1"><span class="num">1</span><span><strong>Llegó algo</strong><span class="to">Lector de documentos y respuestas</span></span></a></li>
+      <li><a href="#agente-2"><span class="num">2</span><span><strong>Voy a escribir</strong><span class="to">Redactor del despacho</span></span></a></li>
+      <li><a href="#agente-3"><span class="num">3</span><span><strong>Voy a citar o a pedir algo</strong><span class="to">Citaciones y solicitudes</span></span></a></li>
+      <li><a href="#agente-5"><span class="num">5</span><span><strong>Voy a enviar</strong><span class="to">Revisor antes de enviar</span></span></a></li>
+      <li><a href="#agente-4"><span class="num">4</span><span><strong>¿Qué tengo pendiente?</strong><span class="to">Control de pendientes</span></span></a></li>
+      <li><a href="#agente-6"><span class="num">6</span><span><strong>Analizar un caso</strong><span class="to">ANALISIS NOTICIA CRIMINAL</span></span></a></li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="t-agents" style="display:grid; gap:18px">
+    <div class="section-head" style="margin-bottom:0">
+      <h2 id="t-agents">Los seis agentes</h2>
+      <p class="muted">En cada uno: toque una frase para copiarla, péguela en el agente y agregue después el documento o los datos. Cambie lo que va entre corchetes.</p>
+    </div>
+
+    <!-- AGENTE 1 -->
+    <article class="agent" id="agente-1">
+      <div class="agent-top"><span class="num">1</span><h3>Lector de documentos y respuestas</h3></div>
+      <p class="purpose"><strong>Para qué sirve:</strong> leer por usted lo que llega al despacho y decirle qué es, qué trae y qué hacer con eso. Le ahorra leer documentos largos completos y buscar datos a mano.</p>
+      <div class="cols">
+        <div class="col">
+          <div class="block"><span class="label">Cómo funciona</span>
+            <ol class="steps">
+              <li><span>Usted pega el texto o adjunta el documento: una respuesta, una denuncia, un informe o un expediente en PDF.</span></li>
+              <li><span>El agente lo lee, identifica qué tipo de documento es y saca lo importante, indicando la página o el fragmento de donde lo tomó.</span></li>
+              <li><span>Le devuelve una ficha con lo esencial y el siguiente paso. Si es una respuesta, le dice si está completa y qué cambiar en la matriz.</span></li>
+            </ol></div>
+          <div class="example"><span class="label">Ejemplo</span>
+            <p>Llega un correo del RUNT con un PDF. Usted lo pega con «Llegó esta respuesta. Analízala:». El agente le dice que es la respuesta de fondo a la solicitud del 15 de octubre, que reporta dos propietarios, que está completa, cómo nombrar el PDF y que cambie el estado a «Respondida».</p></div>
+        </div>
+        <div class="col">
+          <div class="block"><span class="label">Qué hace</span>
+            <ul>
+              <li>Dice a qué solicitud responde una respuesta y si es solo una constancia o la respuesta de fondo.</li>
+              <li>Revisa si llegó todo lo pedido, qué anexos trae y cómo nombrarlos.</li>
+              <li>Hace la ficha de una denuncia o un informe: datos, fechas, tareas y alertas.</li>
+              <li>Busca un dato en un expediente largo y le dice en qué página está.</li>
+              <li>Arma la cronología y la ficha del caso para una audiencia.</li>
+              <li>Prepara un resumen de 4 líneas para el fiscal.</li>
+            </ul></div>
+          <div class="block"><span class="label">Cuándo usarlo</span>
+            <ul>
+              <li>Al llegar, con las respuestas que entraron al correo.</li>
+              <li>Cuando llega una denuncia, un informe de policía judicial o un documento nuevo.</li>
+              <li>Cuando necesita una dirección, una fecha o una placa de un expediente largo.</li>
+              <li>Antes de una audiencia.</li>
+            </ul></div>
+          <p class="not"><strong>Qué no hace:</strong> no interpreta jurídicamente los hallazgos ni inventa datos que no estén en el documento.</p>
+        </div>
+      </div>
+      <div class="block"><span class="label">Frases para empezar</span>
+        <div class="phrases">
+          <button class="phrase" type="button">Llegó esta respuesta. Analízala:<span class="copied">Copiada</span></button>
+          <button class="phrase" type="button">Haz la ficha de este documento:<span class="copied">Copiada</span></button>
+          <button class="phrase" type="button">En este expediente, busca:<span class="copied">Copiada</span></button>
+          <button class="phrase" type="button">Arma la cronología de este expediente:<span class="copied">Copiada</span></button>
+        </div></div>
+    </article>
+
+    <!-- AGENTE 2 -->
+    <article class="agent" id="agente-2">
+      <div class="agent-top"><span class="num">2</span><h3>Redactor del despacho</h3></div>
+      <p class="purpose"><strong>Para qué sirve:</strong> escribir y corregir textos con su estilo (breve, formal y natural) desde el primer intento, sin tener que pedir cambios una y otra vez.</p>
+      <div class="cols">
+        <div class="col">
+          <div class="block"><span class="label">Cómo funciona</span>
+            <ol class="steps">
+              <li><span>Usted pega su texto o sus ideas y dice qué quiere: corregir, mejorar, acortar, responder o remitir.</span></li>
+              <li><span>El agente aplica sus preferencias de estilo y el tono que corresponde a quien va dirigido (juzgado, entidad, usuario).</span></li>
+              <li><span>Le devuelve primero el texto listo para copiar. Abajo, solo si cambió algo de fondo, una nota corta.</span></li>
+            </ol></div>
+          <div class="example"><span class="label">Ejemplo</span>
+            <p>Usted escribe «Mejora este texto:» y pega un párrafo largo para un juzgado. El agente le devuelve un correo de cuatro líneas, con asunto y cierre «Respetuosamente». Si le dice «más breve», cambia solo eso.</p></div>
+        </div>
+        <div class="col">
+          <div class="block"><span class="label">Qué hace</span>
+            <ul>
+              <li>Corrige ortografía y puntuación sin cambiar su estilo.</li>
+              <li>Mejora o acorta textos y quita las frases de relleno.</li>
+              <li>Redacta el correo para enviar un oficio, una orden o una citación.</li>
+              <li>Responde correos con las ideas que usted le dé.</li>
+              <li>Explica textos técnicos en lenguaje claro para un usuario.</li>
+              <li>Marca con [COMPLETAR] lo que falta en lugar de inventarlo.</li>
+            </ul></div>
+          <div class="block"><span class="label">Cuándo usarlo</span>
+            <ul>
+              <li>Cada vez que vaya a escribir un correo, una respuesta o un oficio.</li>
+              <li>Cuando un texto le quedó largo o muy rígido.</li>
+              <li>Cuando tiene que responderle a un usuario o a una víctima.</li>
+              <li>Cuando necesita el correo que acompaña un documento.</li>
+            </ul></div>
+          <p class="not"><strong>Qué no hace:</strong> no decide qué se responde ni agrega datos. Tampoco revisa si el número de caso es el correcto: eso lo hace el agente 5.</p>
+        </div>
+      </div>
+      <div class="block"><span class="label">Frases para empezar</span>
+        <div class="phrases">
+          <button class="phrase" type="button">Mejora este texto:<span class="copied">Copiada</span></button>
+          <button class="phrase" type="button">Corrige solo ortografía y puntuación de este texto:<span class="copied">Copiada</span></button>
+          <button class="phrase" type="button">Redacta el correo para remitir este documento:<span class="copied">Copiada</span></button>
+          <button class="phrase" type="button">Explica este texto en lenguaje claro para un usuario:<span class="copied">Copiada</span></button>
+        </div></div>
+    </article>
+
+    <!-- AGENTE 3 -->
+    <article class="agent" id="agente-3">
+      <div class="agent-top"><span class="num">3</span><h3>Citaciones y solicitudes</h3></div>
+      <p class="purpose"><strong>Para qué sirve:</strong> preparar todo lo que el despacho envía para citar a una persona o pedir información, con el documento y el correo de envío coherentes entre sí.</p>
+      <div class="cols">
+        <div class="col">
+          <div class="block"><span class="label">Cómo funciona</span>
+            <ol class="steps">
+              <li><span>Usted le dice qué necesita (una citación, una solicitud o una orden) y le da los datos, o adjunta el expediente.</span></li>
+              <li><span>Si falta un dato obligatorio, por ejemplo la hora, el agente se lo pregunta. Todo de una vez, nunca lo inventa.</span></li>
+              <li><span>Le devuelve el documento, el correo para enviarlo, el evento para el calendario, la fila para la matriz y una verificación final.</span></li>
+            </ol></div>
+          <div class="example"><span class="label">Ejemplo</span>
+            <p>Usted escribe «Prepara las solicitudes sobre este vehículo (RUNT, tránsito o patios):» y la placa. El agente propone las tres solicitudes, le pregunta cuáles hacer y le entrega cada una con su correo y su fila para la matriz.</p></div>
+        </div>
+        <div class="col">
+          <div class="block"><span class="label">Qué hace</span>
+            <ul>
+              <li>Citaciones a entrevistas, declaraciones juradas (también virtuales) e interrogatorios.</li>
+              <li>Solicitudes de información a tránsito, RUNT, patios, Registraduría, seguridad social, bancos y juzgados.</li>
+              <li>Órdenes a policía judicial, incluidas las experticias técnicas de vehículos.</li>
+              <li>Convierte el programa metodológico del agente 6 en órdenes listas para firma.</li>
+              <li>Seguimiento de audiencias sin programar y reiteraciones formales.</li>
+              <li>Avisa si lo que se pide puede requerir autorización del juez.</li>
+            </ul></div>
+          <div class="block"><span class="label">Cuándo usarlo</span>
+            <ul>
+              <li>En el bloque de la mañana, cuando prepara lo que va a enviar.</li>
+              <li>Cuando hay que citar a alguien o reprogramar una cita.</li>
+              <li>Cuando hay que pedir información a una entidad o sobre un vehículo.</li>
+              <li>Cuando el fiscal aprueba un programa metodológico y hay que hacer las órdenes.</li>
+            </ul></div>
+          <p class="not"><strong>Qué no hace:</strong> no decide qué se pide ni a quién (eso lo decide el despacho) y no inventa números de oficio.</p>
+        </div>
+      </div>
+      <div class="block"><span class="label">Frases para empezar</span>
+        <div class="phrases">
+          <button class="phrase" type="button">Necesito una citación. Pregúntame los datos que falten.<span class="copied">Copiada</span></button>
+          <button class="phrase" type="button">Necesito una solicitud de información a una entidad. Pregúntame los datos que falten.<span class="copied">Copiada</span></button>
+          <button class="phrase" type="button">Prepara las solicitudes sobre este vehículo (RUNT, tránsito o patios):<span class="copied">Copiada</span></button>
+          <button class="phrase" type="button">Convierte este programa metodológico en órdenes a policía judicial:<span class="copied">Copiada</span></button>
+        </div></div>
+    </article>
+
+    <!-- AGENTE 4 -->
+    <article class="agent" id="agente-4">
+      <div class="agent-top"><span class="num">4</span><h3>Control de pendientes</h3></div>
+      <p class="purpose"><strong>Para qué sirve:</strong> saber en todo momento qué solicitudes siguen sin respuesta, cuáles hay que reiterar y qué respuestas falta incorporar, para que nada se olvide.</p>
+      <div class="cols">
+        <div class="col">
+          <div class="block"><span class="label">Cómo funciona</span>
+            <ol class="steps">
+              <li><span>Usted le pide el barrido del correo, o le adjunta la matriz de pendientes, y le da la fecha de hoy.</span></li>
+              <li><span>El agente busca lo que se envió y lo que llegó, y pone cada solicitud en su etapa: Pendiente, Radicada, Respondida…</span></li>
+              <li><span>Le devuelve la lista ordenada por urgencia, los correos de reiteración que hagan falta y las filas para actualizar la matriz.</span></li>
+            </ol></div>
+          <div class="example"><span class="label">Ejemplo</span>
+            <p>El lunes escribe «Hoy es 03/11/2026. Haz el barrido de correo de los últimos 15 días.» El agente encuentra 12 solicitudes: 2 vencidas, 1 para escalar al fiscal y 3 respuestas por incorporar, y le entrega los borradores de reiteración.</p></div>
+        </div>
+        <div class="col">
+          <div class="block"><span class="label">Qué hace</span>
+            <ul>
+              <li>Revisa el correo de los últimos días y empareja solicitudes con respuestas.</li>
+              <li>Distingue una constancia de radicación de una respuesta de fondo.</li>
+              <li>Ordena los pendientes por urgencia: escalar, vencido, reiterar, por vencer.</li>
+              <li>Redacta las reiteraciones y sugiere escalar al fiscal después de dos.</li>
+              <li>Avisa de las diligencias próximas que hay que confirmar.</li>
+              <li>Prepara el informe semanal para el fiscal.</li>
+            </ul></div>
+          <div class="block"><span class="label">Cuándo usarlo</span>
+            <ul>
+              <li>Los lunes y jueves, 15 minutos, para revisar los pendientes.</li>
+              <li>Los viernes, para el informe al fiscal.</li>
+              <li>Cuando quiere saber en qué va una solicitud.</li>
+            </ul></div>
+          <p class="not"><strong>Qué no hace:</strong> no da por respondido algo que no consta en el correo ni en la matriz, y no envía correos por usted.</p>
+        </div>
+      </div>
+      <div class="block"><span class="label">Frases para empezar</span>
+        <div class="phrases">
+          <button class="phrase" type="button">Hoy es [DD/MM/AAAA]. Haz el barrido de correo de los últimos 15 días.<span class="copied">Copiada</span></button>
+          <button class="phrase" type="button">Registra esta respuesta recibida:<span class="copied">Copiada</span></button>
+          <button class="phrase" type="button">Hoy es [DD/MM/AAAA]. Prepara el informe semanal de pendientes para el fiscal.<span class="copied">Copiada</span></button>
+        </div></div>
+    </article>
+
+    <!-- AGENTE 5 -->
+    <article class="agent" id="agente-5">
+      <div class="agent-top"><span class="num">5</span><h3>Revisor antes de enviar</h3></div>
+      <p class="purpose"><strong>Para qué sirve:</strong> revisar en segundos que un correo y sus adjuntos no salgan con errores antes de enviarlos.</p>
+      <div class="cols">
+        <div class="col">
+          <div class="block"><span class="label">Cómo funciona</span>
+            <ol class="steps">
+              <li><span>Usted copia del borrador de Outlook las líneas Para, CC y Asunto, más el cuerpo, y adjunta los documentos.</span></li>
+              <li><span>El agente compara los datos de cada pieza: número de caso, nombres, fechas, horas y anexos.</span></li>
+              <li><span>Le devuelve un semáforo (🔴 no enviar todavía · 🟡 revisar · 🟢 listo) y la lista de lo que hay que corregir.</span></li>
+            </ol></div>
+          <div class="example"><span class="label">Ejemplo</span>
+            <p>Una citación dice «lunes 15» en el correo y «martes 16» en el documento. El agente marca 🔴 y le muestra las dos fechas para que escoja la correcta.</p></div>
+        </div>
+        <div class="col">
+          <div class="block"><span class="label">Qué hace</span>
+            <ul>
+              <li>Detecta números o nombres que no coinciden entre el correo y el documento.</li>
+              <li>Encuentra datos que quedaron de otro caso.</li>
+              <li>Avisa si falta un anexo o si el adjunto es una versión equivocada.</li>
+              <li>Revisa las fechas y los formatos del número de caso y de las placas.</li>
+              <li>Señala datos personales enviados a quien no los necesita.</li>
+              <li>Detecta [FIRMA] o notas de Copilot pegadas por error.</li>
+            </ul></div>
+          <div class="block"><span class="label">Cuándo usarlo</span>
+            <ul>
+              <li>Antes de enviar cualquier cosa a un juzgado, una entidad, policía judicial o una víctima.</li>
+              <li>Siempre que haya reutilizado un documento de otro caso.</li>
+              <li>Cuando envía varios documentos a la vez.</li>
+            </ul></div>
+          <p class="not"><strong>Qué no hace:</strong> no cambia el estilo ni opina sobre el fondo. Si le pide «corrígelo», cambia solo lo que señaló.</p>
+        </div>
+      </div>
+      <div class="block"><span class="label">Frases para empezar</span>
+        <div class="phrases">
+          <button class="phrase" type="button">Revisa este correo y sus adjuntos antes de enviarlos:<span class="copied">Copiada</span></button>
+          <button class="phrase" type="button">Revisa si este correo expone datos personales o reservados:<span class="copied">Copiada</span></button>
+        </div></div>
+    </article>
+
+    <!-- AGENTE 6 -->
+    <article class="agent legal" id="agente-6">
+      <div class="agent-top"><span class="num">6</span><h3>ANALISIS NOTICIA CRIMINAL</h3></div>
+      <p class="purpose"><strong>Para qué sirve:</strong> ayudar a analizar jurídicamente un caso de patrimonio económico o fe pública, como borrador para el fiscal.</p>
+      <div class="cols">
+        <div class="col">
+          <div class="block"><span class="label">Cómo funciona</span>
+            <ol class="steps">
+              <li><span>Usted pega o adjunta la noticia criminal, la denuncia o el informe policial.</span></li>
+              <li><span>El agente separa lo comprobado de lo que solo afirma el denunciante, y revisa los delitos posibles y los aspectos procesales.</span></li>
+              <li><span>Le devuelve un borrador en cinco partes, con lo que falta por investigar y las normas que hay que verificar.</span></li>
+            </ol></div>
+          <div class="example"><span class="label">Ejemplo</span>
+            <p>Una denuncia por la venta de un carro que nunca se entregó. El agente plantea la estafa como hipótesis, advierte que podría ser un incumplimiento civil y lista qué pruebas faltan para distinguir una cosa de la otra.</p></div>
+        </div>
+        <div class="col">
+          <div class="block"><span class="label">Qué hace</span>
+            <ul>
+              <li>Identifica los hechos importantes y los vacíos de información.</li>
+              <li>Propone los delitos posibles y revisa si se cumplen sus elementos.</li>
+              <li>Revisa querella, conciliación, procedimiento y salidas posibles.</li>
+              <li>Propone los actos de investigación urgentes y el programa metodológico.</li>
+              <li>Advierte cuando el asunto parece civil y no penal.</li>
+            </ul></div>
+          <div class="block"><span class="label">Cuándo usarlo</span>
+            <ul>
+              <li>Cuando el fiscal le pide el análisis de una noticia criminal.</li>
+              <li>Cuando hay que proponer los actos de investigación de un caso nuevo.</li>
+              <li>Antes de hacer las órdenes con el agente 3.</li>
+            </ul></div>
+          <p class="not"><strong>Qué no hace:</strong> no decide ni cita sentencias que no haya verificado. <span class="legal-note">Es solo un borrador: el fiscal lo revisa y decide.</span></p>
+        </div>
+      </div>
+      <div class="block"><span class="label">Frases para empezar</span>
+        <div class="phrases">
+          <button class="phrase" type="button">Analiza esta noticia criminal y elabora el diagnóstico preliminar en los cinco bloques.<span class="copied">Copiada</span></button>
+          <button class="phrase" type="button">A partir de este informe policial, propone los actos urgentes y el programa metodológico inicial, con la finalidad y la prioridad de cada acto.<span class="copied">Copiada</span></button>
+        </div></div>
+    </article>
+  </section>
+
+  <section aria-labelledby="t-mom">
+    <div class="section-head">
+      <h2 id="t-mom">En qué momento usar cada uno</h2>
+    </div>
+    <div class="moments" role="table" aria-label="Momentos del día y agente">
+      <div class="m-row h" role="row"><span role="columnheader">Momento</span><span role="columnheader">Situación</span><span role="columnheader">Agente</span></div>
+      <div class="m-row" role="row"><span class="m-when" role="cell">Al llegar</span><span role="cell">Revisar las respuestas que entraron al correo.</span><span class="m-who" role="cell"><span class="w"><span class="num sm">1</span>Lector</span></span></div>
+      <div class="m-row" role="row"><span class="m-when" role="cell">En la mañana</span><span role="cell">Preparar citaciones, solicitudes y órdenes, y revisarlas antes de enviar.</span><span class="m-who" role="cell"><span class="w"><span class="num sm">3</span>Citaciones</span><span class="w"><span class="num sm">5</span>Revisor</span></span></div>
+      <div class="m-row" role="row"><span class="m-when" role="cell">Durante el día</span><span role="cell">Escribir o responder correos; buscar un dato en un expediente.</span><span class="m-who" role="cell"><span class="w"><span class="num sm">2</span>Redactor</span><span class="w"><span class="num sm">1</span>Lector</span></span></div>
+      <div class="m-row" role="row"><span class="m-when" role="cell">Cuando el fiscal lo pida</span><span role="cell">Analizar un caso y después hacer las órdenes.</span><span class="m-who" role="cell"><span class="w"><span class="num sm">6</span>Análisis</span><span class="w"><span class="num sm">3</span>Citaciones</span></span></div>
+      <div class="m-row" role="row"><span class="m-when" role="cell">Antes de una audiencia</span><span role="cell">Ficha del caso y cronología.</span><span class="m-who" role="cell"><span class="w"><span class="num sm">1</span>Lector</span></span></div>
+      <div class="m-row" role="row"><span class="m-when" role="cell">Lunes y jueves</span><span role="cell">Revisar los pendientes y reiterar lo vencido.</span><span class="m-who" role="cell"><span class="w"><span class="num sm">4</span>Pendientes</span></span></div>
+      <div class="m-row" role="row"><span class="m-when" role="cell">Viernes</span><span role="cell">Informe de pendientes para el fiscal.</span><span class="m-who" role="cell"><span class="w"><span class="num sm">4</span>Pendientes</span></span></div>
+    </div>
+  </section>
+
+  <section class="rules" aria-labelledby="t-reg">
+    <h2 id="t-reg">Cuatro reglas</h2>
+    <ul>
+      <li>Si ve <b>[COMPLETAR]</b> o <b>[FIRMA]</b>, complételo antes de enviar.</li>
+      <li>Cada solicitud va a la matriz y cada diligencia, al calendario.</li>
+      <li>El agente 6 hace borradores: decide el fiscal.</li>
+      <li class="privacy">Los datos de los casos no salen de la entidad.</li>
+    </ul>
+  </section>
+
+  <footer>
+    <p>Si un agente responde algo raro, anote la frase que usó y el resultado. Sirve para ajustarlo.</p>
+  </footer>
+</main>
+
+<script>
+(function () {
+  function textOf(btn) {
+    var clone = btn.cloneNode(true);
+    var badge = clone.querySelector('.copied');
+    if (badge) badge.remove();
+    return clone.textContent.trim();
+  }
+  function markCopied(btn) {
+    btn.classList.add('is-copied');
+    setTimeout(function () { btn.classList.remove('is-copied'); }, 1600);
+  }
+  function selectText(btn) {
+    try {
+      var range = document.createRange();
+      range.selectNodeContents(btn.firstChild || btn);
+      var sel = window.getSelection();
+      sel.removeAllRanges();
+      sel.addRange(range);
+    } catch (e) {}
+  }
+  document.querySelectorAll('.phrase').forEach(function (btn) {
+    btn.setAttribute('aria-label', 'Copiar frase: ' + textOf(btn));
+    btn.addEventListener('click', function () {
+      var t = textOf(btn);
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(t).then(function () { markCopied(btn); }, function () { selectText(btn); });
+      } else {
+        selectText(btn);
+      }
+    });
+  });
+})();
+</script>
